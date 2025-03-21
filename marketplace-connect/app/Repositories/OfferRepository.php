@@ -24,7 +24,9 @@ class OfferRepository implements OfferRepositoryInterface
             ]
         );
     }
-
+    /**
+     * {@inheritDoc}
+     */
     public function find(int $offerId): ?OfferEntity
     {
         $data = $this->model

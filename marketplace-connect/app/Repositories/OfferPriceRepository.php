@@ -12,6 +12,9 @@ class OfferPriceRepository implements OfferPriceRepositoryInterface
         private readonly OfferPrice $model
     ) {}
 
+    /**
+     * {@inheritDoc}
+     */
     public function persist(OfferPriceEntity $entity): void
     {
         $this->model->create([

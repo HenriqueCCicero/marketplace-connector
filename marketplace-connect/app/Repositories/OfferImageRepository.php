@@ -11,7 +11,9 @@ class OfferImageRepository implements OfferImageRepositoryInterface
     public function __construct(
         private readonly OfferImage $model,
     ) {}
-
+    /**
+     * {@inheritDoc}
+     */
     public function persist(OfferImageEntity $entity): void
     {
         $this->model->create([
