@@ -23,6 +23,7 @@ class JobProcessedListener
 
         match ($event->job->resolveName()) {
             ImportOfferJob::class => $this->offerUseCase->requestExport(data_get($data, 'offerId')),
+            default => null,
         };
     }
 
