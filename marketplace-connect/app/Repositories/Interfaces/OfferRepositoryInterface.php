@@ -2,25 +2,16 @@
 
 namespace App\Repositories\Interfaces;
 
+use App\Entities\OfferEntity;
 interface OfferRepositoryInterface
 {
     /**
-     * Get offers.
+     * Save data
      */
-    public function getOffers(): ?string;
+    public function persist(OfferEntity $entity): void;
 
     /**
-     * Get offer by reference.
+     * Find data
      */
-    public function getOfferByReference(string $reference): array;
-
-    /**
-     * Get offer images.
-     */
-    public function getOfferImages(string $reference): array;
-
-    /**
-     * Get offer prices.
-     */
-    public function getOfferPrices(string $reference): array;
+    public function find(int $offerId): ?OfferEntity;
 }
