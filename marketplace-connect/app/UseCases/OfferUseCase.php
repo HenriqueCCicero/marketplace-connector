@@ -2,13 +2,14 @@
 
 namespace App\UseCases;
 
+use App\Entities\OfferEntity;
 use App\Entities\OfferHubEntity;
-use App\Events\ExportOfferEvent;
 use App\Events\GetOffersEvent;
-use App\Events\ImportOfferEvent;
 use App\Repositories\Interfaces\OfferRepositoryInterface;
 use App\Services\Interfaces\HubServiceInterface;
 use App\Services\Interfaces\MarketplaceServiceInterface;
+use App\States\OfferCreatingState;
+use App\States\OfferExportingState;
 use App\UseCases\Interfaces\OfferUseCaseInterface;
 
 class OfferUseCase implements OfferUseCaseInterface
@@ -37,8 +38,12 @@ class OfferUseCase implements OfferUseCaseInterface
             $offers = $this->marketplaceService->getOffers($page);
             $totalPages = data_get($offers, 'pagination.total_pages', 0);
 
-            collect(data_get($offers, 'data.offers', []))
-                ->each(fn ($reference) => ImportOfferEvent::dispatch($reference));
+            collect(data_get($offers, 'data.offers'))
+                ->each(function (int $offerId) {
+                    $entity = new OfferEntity($offerId);
+
+                    $entity->setState(new OfferCreatingState);
+                });
 
             $page++;
         } while ($page <= $totalPages);
@@ -49,7 +54,9 @@ class OfferUseCase implements OfferUseCaseInterface
      */
     public function requestExport(int $offerId): void
     {
-        ExportOfferEvent::dispatch($offerId);
+        $entity = new OfferEntity($offerId);
+
+        $entity->setState(new OfferExportingState);
     }
 
     /**

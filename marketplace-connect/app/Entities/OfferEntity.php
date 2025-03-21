@@ -2,16 +2,18 @@
 
 namespace App\Entities;
 
+use App\States\Interfaces\OfferStateInterface;
+
 class OfferEntity
 {
     public function __construct(
-        public readonly string $id,
-        public readonly string $title,
-        public readonly string $description,
-        public readonly string $status,
-        public readonly int $stock,
-        public readonly ?array $images,
-        public readonly ?array $prices,
+        public readonly int $id,
+        public readonly ?string $title = null,
+        public readonly ?string $description = null,
+        public readonly ?string $status = null,
+        public readonly ?int $stock = null,
+        public readonly ?array $images = [],
+        public readonly ?array $prices = [],
     ) {}
 
     public static function hydrate(object $data): self
@@ -25,5 +27,10 @@ class OfferEntity
             data_get($data, 'images'),
             data_get($data, 'prices'),
         );
+    }
+
+    public function setState(OfferStateInterface $state): void
+    {
+        $state->notify($this->id);
     }
 }
