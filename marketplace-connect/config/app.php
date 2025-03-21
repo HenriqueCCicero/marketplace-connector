@@ -145,17 +145,21 @@ return [
         /*
          * Services
          */
-        App\Providers\Services\OfferServiceProvider::class,
+        App\Providers\Services\MarketplaceServiceProvider::class,
+        App\Providers\Services\HubServiceProvider::class,
 
         /*
          * Repositories
          */
         App\Providers\Repositories\OfferRepositoryProvider::class,
+        App\Providers\Repositories\OfferImageRepositoryProvider::class,
+        App\Providers\Repositories\OfferPriceRepositoryProvider::class,
 
         /*
          * UseCases
          */
         App\Providers\UseCases\OfferUseCaseProvider::class,
+        App\Providers\UseCases\OfferPersistUseCaseProvider::class,
 
     ])->toArray(),
 ];
