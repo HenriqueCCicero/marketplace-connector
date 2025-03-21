@@ -14,10 +14,9 @@ class ImportOfferEvent
     /**
      * Create a new event instance.
      */
-    public function __construct(public readonly string $reference)
-    {
-        //
-    }
+    public function __construct(
+        public readonly int $offerId
+    ) {}
 
     /**
      * Get the channels the event should broadcast on.

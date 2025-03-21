@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\UseCases\Interfaces\OfferPersistUseCaseInterface;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -13,21 +14,20 @@ class ImportOfferJob implements ShouldBeUnique, ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public function __construct(private readonly string $reference)
-    {
-        //
-    }
+    public function __construct(
+        public readonly int $offerId
+    ) {}
 
-    public function uniqueId(): string
+    public function uniqueId(): int
     {
-        return $this->reference;
+        return $this->offerId;
     }
 
     /**
      * Execute the job.
      */
-    public function handle(): void
+    public function handle(OfferPersistUseCaseInterface $offerUseCase): void
     {
-        //
+        $offerUseCase->import($this->offerId);
     }
 }
