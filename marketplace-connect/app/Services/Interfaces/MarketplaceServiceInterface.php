@@ -2,7 +2,7 @@
 
 namespace App\Services\Interfaces;
 
-interface OfferServiceInterface
+interface MarketplaceServiceInterface
 {
     /**
      * Get offers.
