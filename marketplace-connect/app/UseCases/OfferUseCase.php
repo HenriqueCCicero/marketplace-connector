@@ -8,6 +8,7 @@ use App\Events\GetOffersEvent;
 use App\Repositories\Interfaces\OfferRepositoryInterface;
 use App\Services\Interfaces\HubServiceInterface;
 use App\Services\Interfaces\MarketplaceServiceInterface;
+use App\States\OfferContext;
 use App\States\OfferCreatingState;
 use App\States\OfferExportingState;
 use App\UseCases\Interfaces\OfferUseCaseInterface;
@@ -39,12 +40,11 @@ class OfferUseCase implements OfferUseCaseInterface
             $totalPages = data_get($offers, 'pagination.total_pages', 0);
 
             $offerIds = collect(data_get($offers, 'data.offers'));
-            dump($offerIds);
+
             $offerIds->chunk(10)->each(function ($chunk) {
                 $chunk->each(function (int $offerId) {
-                    $entity = new OfferEntity($offerId);
-
-                    $entity->setState(new OfferCreatingState);
+                    $context = new OfferContext(new OfferCreatingState);
+                    $context->notify($offerId);
                 });
             });
 
