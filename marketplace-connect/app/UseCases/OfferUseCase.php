@@ -38,12 +38,15 @@ class OfferUseCase implements OfferUseCaseInterface
             $offers = $this->marketplaceService->getOffers($page);
             $totalPages = data_get($offers, 'pagination.total_pages', 0);
 
-            collect(data_get($offers, 'data.offers'))
-                ->each(function (int $offerId) {
+            $offerIds = collect(data_get($offers, 'data.offers'));
+            dump($offerIds);
+            $offerIds->chunk(10)->each(function ($chunk) {
+                $chunk->each(function (int $offerId) {
                     $entity = new OfferEntity($offerId);
 
                     $entity->setState(new OfferCreatingState);
                 });
+            });
 
             $page++;
         } while ($page <= $totalPages);
