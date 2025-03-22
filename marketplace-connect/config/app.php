@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => env('APP_TIMEZONE', 'UTC'),
 
     /*
     |--------------------------------------------------------------------------
@@ -137,7 +137,6 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
-
         /*
          * Package Service Providers...
          */
@@ -162,4 +161,5 @@ return [
         App\Providers\UseCases\OfferPersistUseCaseProvider::class,
 
     ])->toArray(),
+
 ];

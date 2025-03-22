@@ -4,30 +4,26 @@ namespace App\Providers\Services;
 
 use App\Services\Interfaces\MarketplaceServiceInterface;
 use App\Services\MarketplaceService;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Support\DeferrableProvider;
+use Illuminate\Support\ServiceProvider;
 
 class MarketplaceServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * Register any application services.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->app->bind(MarketplaceServiceInterface::class, MarketplaceService::class);
     }
 
     /**
-     * Bootstrap any application services.
-     *
-     * @return void
+     * @return string[]
      */
-    public function boot()
+    public function provides()
     {
-        return[
-            MarketplaceServiceInterface::class
+        return [
+            MarketplaceServiceInterface::class,
         ];
     }
 }

@@ -2,27 +2,28 @@
 
 namespace App\Providers\UseCases;
 
+use App\UseCases\Interfaces\OfferUseCaseInterface;
+use App\UseCases\OfferUseCase;
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class OfferUseCaseProvider extends ServiceProvider
+class OfferUseCaseProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
-     * Register services.
-     *
-     * @return void
+     * Register any application services.
      */
-    public function register()
+    public function register(): void
     {
-        // Register bindings or services here
+        $this->app->bind(OfferUseCaseInterface::class, OfferUseCase::class);
     }
 
     /**
-     * Bootstrap services.
-     *
-     * @return void
+     * @return string[]
      */
-    public function boot()
+    public function provides()
     {
-        // Bootstrap any application services here
+        return [
+            OfferUseCaseInterface::class,
+        ];
     }
 }

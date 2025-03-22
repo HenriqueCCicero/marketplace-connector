@@ -11,6 +11,7 @@ class OfferImageRepository implements OfferImageRepositoryInterface
     public function __construct(
         private readonly OfferImage $model,
     ) {}
+
     /**
      * {@inheritDoc}
      */

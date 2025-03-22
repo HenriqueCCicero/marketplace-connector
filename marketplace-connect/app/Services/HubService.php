@@ -23,7 +23,7 @@ class HubService implements HubServiceInterface
      */
     public function createOffer(OfferHubEntity $entity): void
     {
-        $this->client->post(
+        $data = $this->client->post(
             '/hub/create-offer',
             $entity->dehydration()
         );
