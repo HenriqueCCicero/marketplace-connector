@@ -7,8 +7,12 @@ use App\States\Interfaces\OfferStateInterface;
 
 class OfferCreatingState implements OfferStateInterface
 {
-    public function notify(int $offerId): void
+    public function __construct(
+        private int $offerId
+    ) {}
+
+    public function notify(): void
     {
-        ImportOfferEvent::dispatch($offerId);
+        ImportOfferEvent::dispatch($this->offerId);
     }
 }

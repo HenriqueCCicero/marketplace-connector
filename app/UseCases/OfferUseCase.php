@@ -2,15 +2,14 @@
 
 namespace App\UseCases;
 
-use App\Entities\OfferEntity;
 use App\Entities\OfferHubEntity;
 use App\Events\GetOffersEvent;
 use App\Repositories\Interfaces\OfferRepositoryInterface;
 use App\Services\Interfaces\HubServiceInterface;
 use App\Services\Interfaces\MarketplaceServiceInterface;
-use App\States\OfferContext;
 use App\States\OfferCreatingState;
 use App\States\OfferExportingState;
+use App\States\OfferStateManager;
 use App\UseCases\Interfaces\OfferUseCaseInterface;
 
 class OfferUseCase implements OfferUseCaseInterface
@@ -19,6 +18,7 @@ class OfferUseCase implements OfferUseCaseInterface
         private readonly MarketplaceServiceInterface $marketplaceService,
         private readonly OfferRepositoryInterface $offerRepository,
         private readonly HubServiceInterface $hubService,
+        private readonly OfferStateManager $offerStateManager,
     ) {}
 
     /**
@@ -43,8 +43,8 @@ class OfferUseCase implements OfferUseCaseInterface
 
             $offerIds->chunk(10)->each(function ($chunk) {
                 $chunk->each(function (int $offerId) {
-                    $context = new OfferContext(new OfferCreatingState);
-                    $context->notify($offerId);
+                    $this->offerStateManager->setState(new OfferCreatingState($offerId));
+
                 });
             });
 
@@ -57,9 +57,7 @@ class OfferUseCase implements OfferUseCaseInterface
      */
     public function requestExport(int $offerId): void
     {
-        $entity = new OfferEntity($offerId);
-
-        $entity->setState(new OfferExportingState);
+        $this->offerStateManager->setState(new OfferExportingState($offerId));
     }
 
     /**

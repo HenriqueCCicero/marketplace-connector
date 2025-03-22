@@ -2,8 +2,6 @@
 
 namespace App\Entities;
 
-use App\States\Interfaces\OfferStateInterface;
-
 class OfferEntity
 {
     public function __construct(
@@ -27,10 +25,5 @@ class OfferEntity
             data_get($data, 'images'),
             data_get($data, 'prices'),
         );
-    }
-
-    public function setState(OfferStateInterface $state): void
-    {
-        $state->notify($this->id);
     }
 }
