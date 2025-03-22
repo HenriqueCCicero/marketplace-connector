@@ -47,6 +47,7 @@ return array(
     'App\\Services\\Interfaces\\MarketplaceServiceInterface' => $baseDir . '/app/Services/Interfaces/MarketplaceServiceInterface.php',
     'App\\Services\\MarketplaceService' => $baseDir . '/app/Services/MarketplaceService.php',
     'App\\States\\Interfaces\\OfferStateInterface' => $baseDir . '/app/States/Interfaces/OfferStateInterface.php',
+    'App\\States\\OfferContext' => $baseDir . '/app/States/OfferContext.php',
     'App\\States\\OfferCreatingState' => $baseDir . '/app/States/OfferCreatingState.php',
     'App\\States\\OfferExportingState' => $baseDir . '/app/States/OfferExportingState.php',
     'App\\UseCases\\Interfaces\\OfferPersistUseCaseInterface' => $baseDir . '/app/UseCases/Interfaces/OfferPersistUseCaseInterface.php',

@@ -606,6 +606,7 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
         'App\\Services\\Interfaces\\MarketplaceServiceInterface' => __DIR__ . '/../..' . '/app/Services/Interfaces/MarketplaceServiceInterface.php',
         'App\\Services\\MarketplaceService' => __DIR__ . '/../..' . '/app/Services/MarketplaceService.php',
         'App\\States\\Interfaces\\OfferStateInterface' => __DIR__ . '/../..' . '/app/States/Interfaces/OfferStateInterface.php',
+        'App\\States\\OfferContext' => __DIR__ . '/../..' . '/app/States/OfferContext.php',
         'App\\States\\OfferCreatingState' => __DIR__ . '/../..' . '/app/States/OfferCreatingState.php',
         'App\\States\\OfferExportingState' => __DIR__ . '/../..' . '/app/States/OfferExportingState.php',
         'App\\UseCases\\Interfaces\\OfferPersistUseCaseInterface' => __DIR__ . '/../..' . '/app/UseCases/Interfaces/OfferPersistUseCaseInterface.php',
