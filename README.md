@@ -55,5 +55,5 @@ sail npm install
 sail artisan key:generate
 sail artisan migrate
 
-# Iniciar queue worker
-sail artisan queue:work
+# Iniciar horizon
+sail artisan horizon
