@@ -7,12 +7,12 @@ use App\Entities\OfferHubEntity;
 interface HubServiceInterface
 {
     /**
-    * Creates a new offer in the hub.
-    *
-    * This method sends a request to the hub service to create an offer
-    * using the provided OfferHubEntity.
-    *
-    * @param OfferHubEntity $entity The offer entity to be created in the hub.
+     * Cria uma nova oferta no hub.
+     *
+     * Este método envia uma solicitação para o serviço hub para criar uma oferta
+     * usando a OfferHubEntity fornecida.
+     *
+     * @param  OfferHubEntity  $entity  A entidade da oferta a ser criada no hub.
      */
     public function createOffer(OfferHubEntity $entity): void;
 }

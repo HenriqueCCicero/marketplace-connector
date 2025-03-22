@@ -7,11 +7,11 @@ use App\Entities\OfferImageEntity;
 interface OfferImageRepositoryInterface
 {
     /**
-     * Saves the given offer image entity to the database.
+     * Salva a entidade de imagem da oferta no banco de dados.
      *
-     * This method creates a new record for the offer image.
+     * Este método cria um novo registro para a imagem da oferta.
      *
-     * @param  OfferImageEntity  $entity  The offer image entity to be persisted
+     * @param  OfferImageEntity  $entity  A entidade de imagem da oferta a ser persistida.
      */
     public function persist(OfferImageEntity $entity): void;
 }

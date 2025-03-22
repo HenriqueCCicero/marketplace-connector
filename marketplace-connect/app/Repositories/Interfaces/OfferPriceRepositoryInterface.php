@@ -7,11 +7,11 @@ use App\Entities\OfferPriceEntity;
 interface OfferPriceRepositoryInterface
 {
     /**
-     * Saves the given offer price entity to the database.
+    * Salva a entidade de preço da oferta no banco de dados.
+    *
+    * Este método cria um novo registro para o preço da oferta.
      *
-     * This method creates a new record for the offer price
-     *
-     * @param  OfferPriceEntity  $entity  The offer price entity to be persisted.
+     * @param  OfferPriceEntity  $entity  A entidade de preço da oferta a ser persistida.
      */
     public function persist(OfferPriceEntity $entity): void;
 }

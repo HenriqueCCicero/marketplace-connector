@@ -5,34 +5,34 @@ namespace App\Services\Interfaces;
 interface MarketplaceServiceInterface
 {
     /**
-     * Retrieve a list of offers from the marketplace.
+     * Recupera uma lista de ofertas do marketplace.
      *
-     * @param  int  $page  The page number for paginated results. Defaults to 1 if not provided.
-     * @return array An array containing the offers data.
+     * @param  int  $page  O número da página para resultados paginados. Padrão é 1 se não fornecido.
+     * @return array Um array contendo os dados das ofertas.
      */
     public function getOffers(): array;
 
     /**
-     * Retrieve details of an offer by its reference identifier.
+     * Recupera os detalhes de uma oferta pelo seu identificador de referência.
      *
-     * @param  string  $reference  The unique identifier of the offer.
-     * @return array An array containing the details of the specified offer.
+     * @param  string  $reference  O identificador único da oferta.
+     * @return array Um array contendo os detalhes da oferta especificada.
      */
     public function getOfferByReference(string $reference): array;
 
     /**
-     * Retrieve images related to an offer using its reference identifier.
+     * Recupera as imagens relacionadas a uma oferta usando seu identificador de referência.
      *
-     * @param  string  $reference  The unique identifier of the offer.
-     * @return array An array containing URLs of the images.
+     * @param  string  $reference  O identificador único da oferta.
+     * @return array Um array contendo as URLs das imagens.
      */
     public function getOfferImages(string $reference): array;
 
     /**
-     * Retrieve price details of an offer using its reference identifier.
+     * Recupera os detalhes de preços de uma oferta usando seu identificador de referência.
      *
-     * @param  string  $reference  The unique identifier of the offer.
-     * @return array An array containing pricing information.
+     * @param  string  $reference  O identificador único da oferta.
+     * @return array Um array contendo as informações de preços.
      */
     public function getOfferPrices(string $reference): array;
 }
