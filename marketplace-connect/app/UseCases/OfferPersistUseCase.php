@@ -35,10 +35,12 @@ class OfferPersistUseCase implements OfferPersistUseCaseInterface
 
         if (empty(data_get($offerDatabase, 'images'))) {
             $this->getImages($offerId)
-                ->each(fn (OfferImageEntity $entity) => $this->offerImageRepository->persist($entity));
+                ->each(
+                    fn (OfferImageEntity $entity) => $this->offerImageRepository->persist($entity)
+                );
         }
 
-        if (!empty(data_get($offerDatabase, 'prices'))) {
+        if (! empty(data_get($offerDatabase, 'prices'))) {
             return;
         }
 
@@ -47,18 +49,25 @@ class OfferPersistUseCase implements OfferPersistUseCaseInterface
     }
 
     /**
-     * Request in API Offer and transform entity
+     * Recupera os detalhes da oferta da API do marketplace e os converte em uma OfferEntity.
+     *
+     * @param  int  $offerId  O identificador único da oferta a ser buscada.
+     * @return OfferEntity A entidade preenchida contendo os detalhes da oferta.
      */
     private function getDetails(int $offerId): OfferEntity
     {
         $response = $this->marketplaceService->getOfferByReference($offerId);
+
         $data = data_get($response, 'data');
 
         return OfferEntity::hydrate((object) $data);
     }
 
     /**
-     * Request in API Offer and make collection of entity
+     * Recupera as imagens da oferta da API do marketplace e as retorna como uma coleção de entidades.
+     *
+     * @param  int  $offerId  O identificador único da oferta cujas imagens serão buscadas.
+     * @return Collection Uma coleção de instâncias de OfferImageEntity representando as imagens da oferta.
      */
     private function getImages(int $offerId): Collection
     {
@@ -74,7 +83,10 @@ class OfferPersistUseCase implements OfferPersistUseCaseInterface
     }
 
     /**
-     * Request in API Offer and make collection of entity
+     * Recupera o preço da oferta da API do marketplace e o converte em uma OfferPriceEntity.
+     *
+     * @param  int  $offerId  O identificador único da oferta cujo preço será buscado.
+     * @return OfferPriceEntity A entidade contendo as informações de preço da oferta.
      */
     private function getPrices(int $offerId): OfferPriceEntity
     {
