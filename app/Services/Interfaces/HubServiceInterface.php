@@ -13,6 +13,7 @@ interface HubServiceInterface
      * usando a OfferHubEntity fornecida.
      *
      * @param  OfferHubEntity  $entity  A entidade da oferta a ser criada no hub.
+     * @return void
      */
     public function createOffer(OfferHubEntity $entity): void;
 }

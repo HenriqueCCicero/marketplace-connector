@@ -12,7 +12,7 @@ class GetOffersEvent
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * Get the channels the event should broadcast on.
+     * Obtenha os canais nos quais o evento deve ser transmitido.
      *
      * @return array<int, \Illuminate\Broadcasting\Channel>
      */

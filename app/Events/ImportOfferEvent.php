@@ -12,14 +12,14 @@ class ImportOfferEvent
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * Create a new event instance.
+     * Criar uma nova instância do evento.
      */
     public function __construct(
         public readonly int $offerId
     ) {}
 
     /**
-     * Get the channels the event should broadcast on.
+     * Obter os canais nos quais o evento deve ser transmitido.
      *
      * @return array<int, \Illuminate\Broadcasting\Channel>
      */

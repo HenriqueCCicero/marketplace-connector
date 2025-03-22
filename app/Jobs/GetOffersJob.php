@@ -15,7 +15,7 @@ class GetOffersJob implements ShouldBeUnique, ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
-     * Execute the job.
+     * Executa a Job.
      */
     public function handle(OfferUseCaseInterface $offerUseCase): void
     {

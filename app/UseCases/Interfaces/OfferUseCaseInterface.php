@@ -17,6 +17,7 @@ interface OfferUseCaseInterface
      * Este método recupera dados paginados de ofertas e, para cada oferta, cria uma `OfferEntity` e define
      * seu estado como `OfferCreatingState`, o que subsequentemente dispara o evento `ImportOfferEvent`.
      * O método continua buscando até que todas as páginas disponíveis sejam processadas.
+     * 
      */
     public function getOffers(): void;
 
@@ -27,6 +28,7 @@ interface OfferUseCaseInterface
      * o evento `ExportOfferEvent` para processamento adicional.
      *
      * @param  int  $offerId  O identificador único da oferta a ser exportada.
+     * @return void
      */
     public function requestExport(int $offerId): void;
 
@@ -37,6 +39,7 @@ interface OfferUseCaseInterface
      * e a envia para o serviço do hub para criação.
      *
      * @param  int  $offerId  O identificador único da oferta a ser exportada.
+     * @return void
      */
     public function export(int $offerId): void;
 }

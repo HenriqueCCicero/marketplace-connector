@@ -6,8 +6,16 @@ use App\Entities\OfferEntity;
 use App\Models\Offer;
 use App\Repositories\Interfaces\OfferRepositoryInterface;
 
+/**
+ * Repositório de ofertas.
+ */
 class OfferRepository implements OfferRepositoryInterface
 {
+    /**
+     * Construtor.
+     *
+     * @param Offer $model
+     */
     public function __construct(
         private readonly Offer $model,
     ) {}

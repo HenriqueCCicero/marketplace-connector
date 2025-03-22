@@ -8,7 +8,7 @@ use App\Jobs\GetOffersJob;
 class GetOffersListener
 {
     /**
-     * Handle the event.
+     * Handle do evento.
      */
     public function handle(GetOffersEvent $event): void
     {

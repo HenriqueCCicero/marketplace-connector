@@ -12,6 +12,9 @@ use App\Services\Interfaces\MarketplaceServiceInterface;
 use App\UseCases\Interfaces\OfferPersistUseCaseInterface;
 use Illuminate\Support\Collection;
 
+/**
+ * Caso de uso para persistência de ofertas.
+ */
 class OfferPersistUseCase implements OfferPersistUseCaseInterface
 {
     public function __construct(

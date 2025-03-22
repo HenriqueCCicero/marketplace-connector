@@ -12,8 +12,19 @@ use App\States\OfferExportingState;
 use App\States\OfferStateManager;
 use App\UseCases\Interfaces\OfferUseCaseInterface;
 
+/**
+ * Casos de uso de oferta.
+ */
 class OfferUseCase implements OfferUseCaseInterface
 {
+    /**
+     * Construtor.
+     *
+     * @param MarketplaceServiceInterface $marketplaceService
+     * @param OfferRepositoryInterface $offerRepository
+     * @param HubServiceInterface $hubService
+     * @param OfferStateManager $offerStateManager
+     */
     public function __construct(
         private readonly MarketplaceServiceInterface $marketplaceService,
         private readonly OfferRepositoryInterface $offerRepository,

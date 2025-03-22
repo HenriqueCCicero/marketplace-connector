@@ -13,6 +13,7 @@ interface OfferRepositoryInterface
      * com base no identificador único da entidade de oferta.
      *
      * @param  OfferEntity  $entity  A entidade de oferta a ser persistida.
+     * @return void
      */
     public function persist(OfferEntity $entity): void;
 

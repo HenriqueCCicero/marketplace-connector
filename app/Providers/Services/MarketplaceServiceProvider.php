@@ -10,7 +10,7 @@ use Illuminate\Support\ServiceProvider;
 class MarketplaceServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
-     * Register any application services.
+     * Registra o serviço no container de serviços.
      */
     public function register(): void
     {
@@ -18,7 +18,9 @@ class MarketplaceServiceProvider extends ServiceProvider implements DeferrablePr
     }
 
     /**
-     * @return string[]
+     * Obtém os serviços fornecidos pelo provedor.
+     *
+     * @return void
      */
     public function provides()
     {

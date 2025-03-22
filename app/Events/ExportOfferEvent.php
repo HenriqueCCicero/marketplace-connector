@@ -12,14 +12,14 @@ class ExportOfferEvent
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * Create a new event instance.
+     * Constructor.
      */
     public function __construct(
         public readonly int $offerId
     ) {}
 
     /**
-     * Get the channels the event should broadcast on.
+     * Obtenha os canais nos quais o evento deve ser transmitido.
      *
      * @return array<int, \Illuminate\Broadcasting\Channel>
      */

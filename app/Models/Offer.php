@@ -10,6 +10,11 @@ class Offer extends Model
 {
     use HasFactory;
 
+    /**
+     * Atributos que são atribuíveis em massa.
+     *
+     * @var array
+     */
     protected $fillable = [
         'id',
         'title',
@@ -18,11 +23,17 @@ class Offer extends Model
         'stock',
     ];
 
+    /**
+     * Relacionamento com as imagens da oferta.
+     */
     public function images(): HasMany
     {
         return $this->hasMany(OfferImage::class);
     }
 
+    /**
+     * Relacionamento com os preços da oferta.
+     */
     public function prices(): HasMany
     {
         return $this->hasMany(OfferPrice::class);

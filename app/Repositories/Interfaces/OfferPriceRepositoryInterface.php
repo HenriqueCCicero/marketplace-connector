@@ -12,6 +12,7 @@ interface OfferPriceRepositoryInterface
      * Este método cria um novo registro para o preço da oferta.
      *
      * @param  OfferPriceEntity  $entity  A entidade de preço da oferta a ser persistida.
+     * @return void
      */
     public function persist(OfferPriceEntity $entity): void;
 }

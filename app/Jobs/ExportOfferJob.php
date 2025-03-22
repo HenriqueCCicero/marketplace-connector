@@ -14,10 +14,16 @@ class ExportOfferJob implements ShouldBeUnique, ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    /**
+     * Constructor.
+     */
     public function __construct(
         private readonly int $offerId
     ) {}
 
+    /**
+     * Obtem o identificador único da Job.
+     */
     public function uniqueId(): int
     {
         return $this->offerId;

@@ -8,7 +8,7 @@ use App\Jobs\ImportOfferJob;
 class ImportOfferListener
 {
     /**
-     * Handle the event.
+     * Handle do evento de importação de oferta.
      */
     public function handle(ImportOfferEvent $event): void
     {

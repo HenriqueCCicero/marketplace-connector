@@ -4,6 +4,9 @@ namespace App\Entities;
 
 class OfferEntity
 {
+    /**
+     * Cria uma nova instância da entidade OfferEntity.
+     */
     public function __construct(
         public readonly int $id,
         public readonly ?string $title = null,
@@ -14,6 +17,9 @@ class OfferEntity
         public readonly ?array $prices = [],
     ) {}
 
+    /**
+     * Hidrata a entidade OfferEntity.
+     */
     public static function hydrate(object $data): self
     {
         return new self(

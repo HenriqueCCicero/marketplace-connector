@@ -4,6 +4,9 @@ namespace App\Entities;
 
 class OfferHubEntity
 {
+    /**
+     * Construtor da OfferHubEntity.
+     */
     public function __construct(
         public readonly string $title,
         public readonly string $description,
@@ -11,6 +14,9 @@ class OfferHubEntity
         public readonly int $stock,
     ) {}
 
+    /**
+     * Desidratação da OfferHubEntity.
+     */
     public function dehydration(): array
     {
         return [

@@ -8,7 +8,7 @@ use App\Jobs\ExportOfferJob;
 class ExportOfferListerner
 {
     /**
-     * Handle the event.
+     * Hadle do evento de exportação de oferta.
      */
     public function handle(ExportOfferEvent $event): void
     {

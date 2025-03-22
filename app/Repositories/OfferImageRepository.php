@@ -6,8 +6,16 @@ use App\Entities\OfferImageEntity;
 use App\Models\OfferImage;
 use App\Repositories\Interfaces\OfferImageRepositoryInterface;
 
+/**
+ * Repositório de imagens de ofertas.
+ */
 class OfferImageRepository implements OfferImageRepositoryInterface
 {
+    /**
+     * Construtor.
+     *
+     * @param OfferImage $model
+     */
     public function __construct(
         private readonly OfferImage $model,
     ) {}

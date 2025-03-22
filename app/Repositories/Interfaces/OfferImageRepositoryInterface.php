@@ -12,6 +12,7 @@ interface OfferImageRepositoryInterface
      * Este método cria um novo registro para a imagem da oferta.
      *
      * @param  OfferImageEntity  $entity  A entidade de imagem da oferta a ser persistida.
+     * @return void
      */
     public function persist(OfferImageEntity $entity): void;
 }

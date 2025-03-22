@@ -10,7 +10,7 @@ use Illuminate\Support\ServiceProvider;
 class HubServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
-     * Register any application services.
+     * Registrar o serviço no container de serviços.
      */
     public function register(): void
     {
@@ -18,7 +18,9 @@ class HubServiceProvider extends ServiceProvider implements DeferrableProvider
     }
 
     /**
-     * @return string[]
+     * Obtém os serviços fornecidos pelo provedor.
+     *
+     * @return void
      */
     public function provides()
     {

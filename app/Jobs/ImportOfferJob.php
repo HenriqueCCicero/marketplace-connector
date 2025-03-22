@@ -18,13 +18,16 @@ class ImportOfferJob implements ShouldBeUnique, ShouldQueue
         public readonly int $offerId
     ) {}
 
+    /**
+     * Obtem o identificador único da Job.
+     */
     public function uniqueId(): int
     {
         return $this->offerId;
     }
 
     /**
-     * Execute the job.
+     * Executa a Job.
      */
     public function handle(OfferPersistUseCaseInterface $offerUseCase): void
     {

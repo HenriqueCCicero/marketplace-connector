@@ -8,12 +8,15 @@ use Illuminate\Queue\Events\JobProcessed;
 
 class JobProcessedListener
 {
+    /**
+     * Cria uma nova instância do Listener.
+     */
     public function __construct(
         private readonly OfferUseCaseInterface $offerUseCase
     ) {}
 
     /**
-     * Handle the event.
+     * Handle do evento JobProcessed.
      *
      * @return void
      */
@@ -27,6 +30,9 @@ class JobProcessedListener
         };
     }
 
+    /**
+     * Obtem os dados da Job.
+     */
     private function getData(JobProcessed $event): ?object
     {
         $payload = $event->job->payload();

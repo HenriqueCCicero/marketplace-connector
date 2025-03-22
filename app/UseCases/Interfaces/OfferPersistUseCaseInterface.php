@@ -12,6 +12,7 @@ interface OfferPersistUseCaseInterface
      * apenas as informações que estão faltando.
      *
      * @param  int  $offerId  O identificador único da oferta a ser importada.
+     * @return void
      */
     public function import(int $offerId): void;
 }
