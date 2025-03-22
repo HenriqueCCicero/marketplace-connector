@@ -41,12 +41,11 @@ composer install
 # Configurar ambiente
 cp .env.example .env
 
+# Configurar alias (adicionar ao seu .bashrc/zshrc)
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+
 # Inicializar containers
 sail up -d
-
-# Configurar alias (adicionar ao seu .bashrc/zshrc)
-echo "alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'" >> ~/.bashrc
-source ~/.bashrc
 
 # Instalar dependências frontend (se necessário)
 sail npm install
